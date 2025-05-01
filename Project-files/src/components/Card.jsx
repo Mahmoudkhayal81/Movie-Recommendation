@@ -2,15 +2,27 @@ import React from "react"
 import { useSelector } from "react-redux"
 import moment from "moment"
 import { Link } from "react-router-dom"
-export const Card = ({ data, trending, index }) => {
-  const imageURL = useSelector((state) => state.moviesData.imageURL)
+export const Card = ({ data, trending, index, media_type  }) => {
+  const imageURL = useSelector((state) => state.movieoData?.imageURL || "https://image.tmdb.org/t/p/w500");
+
+
+  const mediaType=data.media_type ??media_type
   console.log(data)
   return (
     <Link
-      to={"/" + data.media_type + "/" + data.id}
-      className="w-full min-w-[230px] max-w-[230px] rounded h-80 overflow-hidden relative"
-    >
-      <img loading="lazy" src={imageURL + data?.poster_path} alt="" />
+    to={`/${mediaType}/${data.id}`}
+      className="w-full min-w-[230px] max-w-[230px] rounded h-80 overflow-hidden block relative hover:scale-105 transition-all" >
+
+        {
+          data?.poster_path ? (
+            <img loading="lazy" src={imageURL + data?.poster_path} alt="" />
+          ) : (
+            <div className="bg-neutral-800 h-full w-full flex justify-center item-center">
+              No imge found
+            </div>
+          )
+
+        }
 
       <div className="absolute top-4">
         {trending && (
@@ -36,3 +48,4 @@ export const Card = ({ data, trending, index }) => {
     </Link>
   )
 }
+export default Card;

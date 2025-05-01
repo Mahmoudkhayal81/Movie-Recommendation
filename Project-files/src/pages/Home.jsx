@@ -17,33 +17,29 @@ export const Home = () => {
   return (
     <div>
       <BannerHome />
-      <HorizontalScrollCard
-        data={trendingData}
-        heading={"Trending"}
-        trending={true}
-      />
+      <HorizontalScrollCard data={trendingData} heading={"Trending"} trending={true} />
       {loadingNowPlaying ? (
         <p>Loading Now Playing</p>
       ) : (
-        <HorizontalScrollCard data={nowPlayingData} heading={"Now Playing"} />
+        <HorizontalScrollCard data={nowPlayingData} heading={"Now Playing"} media_type={"movie"} />
       )}
       {loadingTopRated ? (
         <p>Loading Top Rated</p>
       ) : (
-        <HorizontalScrollCard data={topRated} heading={"Top Rated"} />
+        <HorizontalScrollCard data={topRated} heading={"Top Rated"} media_type={"movie"} />
       )}
       {loadingPopular ? (
         <p>Loading Popular TV Show</p>
       ) : (
         <HorizontalScrollCard
           data={popularTVShowData}
-          heading={"Popular TV Show"}
+          heading={"Popular TV Show"} media_type={"tv"}
         />
       )}
       {loadingOnTheAir ? (
         <p>Loading On The Air</p>
       ) : (
-        <HorizontalScrollCard data={onTheAir} heading={"On The Air"} />
+        <HorizontalScrollCard data={onTheAir} heading={"On The Air"} media_type={"tv"} />
       )}
     </div>
   )
