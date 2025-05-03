@@ -16,7 +16,8 @@ export const useFetch = (endpoint) => {
   }
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [endpoint])
 
   return { data, loading }
 }
+export default useFetch
