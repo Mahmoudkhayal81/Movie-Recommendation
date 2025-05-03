@@ -5,18 +5,17 @@ A streaming platform for movies and TV shows with a dark-themed, responsive UI.
 ## Installation Steps
 
 1. Clone the repo:  
-   `git clone https://github.com/your-username/movie-website.git`  
+   `git clone https://github.com/mohammed1215/Movie-Recommendation.git`  
 2. Navigate to folder:  
-   `cd movie-website`  
+   `cd Movie-Recommendation`  
 3. Install dependencies:  
    `npm install`  
 4. Create `.env` file:  
    Add:  PORT=3000
          API_KEY=your_api_key
-   
 ## System Requirements (Hardware/Software Dependencies)
 
-- **Software**:
+- **Software**:  
 - Node.js: 14.x+  
 - npm: 6.x+  
 - Git: 2.25+  
@@ -34,20 +33,27 @@ A streaming platform for movies and TV shows with a dark-themed, responsive UI.
 ## Execution Guide (Running Locally or Deployed)
 
 - **Locally**:  
-1. Run: `npm run dev`  
+1. Run: `npm start`  
 2. Open: `http://localhost:3000`  
 3. Build: `npm run build`  
 - **Deployed**:  
-- URL: [https://movie-recommendation-nu-five.vercel.app/](https://movie-recommendation-nu-five.vercel.app/)
+- URL: https://movie-recommendation-nu-five.vercel.app/  
 - Matches local version with all features.
 
 ## API Documentation
 
-- **API**: TMDB (assumed)  
-- **Endpoint**: `https://api.themoviedb.org/3/movie/popular?api_key={your_api_key}`  
-- **Parameters**: `api_key`, `language` (optional)  
+- **API**: TMDB  
+- **Endpoints**:  
+- `https://api.themoviedb.org/3/movie/now_playing`  
+- `https://api.themoviedb.org/3/tv/on_the_air`  
+- `https://api.themoviedb.org/3/movie/top_rated`  
+- `https://api.themoviedb.org/3/configuration`  
+- `https://api.themoviedb.org/3/trending/all/week`  
+- `https://api.themoviedb.org/3/tv/popular`  
+- Search: `https://api.themoviedb.org/3/search/multi?query=welcome&api_key=YOUR_API_KEY`  
+- **Parameters**: `api_key`, `query` (for search)  
 - **Response**: JSON (title, date, rating, poster)  
-- **Usage**: Fetches data for sections like "Trending."
+- **Usage**: Fetches data for "Now Playing," "On The Air," "Top Rated," "Trending," "Popular TV," and search.
 
 ## Executable Files & Deployment Link
 
