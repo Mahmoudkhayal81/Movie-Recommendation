@@ -22,7 +22,7 @@ A streaming platform for movies and TV shows with a dark-themed, responsive UI.
 - Git: 2.25+  
 - Browser: Chrome, Firefox, Safari  
 - **Dependencies**:  
-- React.js, Axios/Fetch, CSS framework (e.g., Bootstrap), TMDB API
+- React.js, Axios/Fetch, CSS framework (e.g., TailwindCss), TMDB API
 
 ## Configuration Instructions
 
