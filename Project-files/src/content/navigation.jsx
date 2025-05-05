@@ -25,7 +25,8 @@ export const MobileNavigations = [
   ...navigation,
   {
     label: "Search",
-    href: "/",
+    href: "/search",
     icon: <IoSearchOutline />,
-  },
+  }
+  
 ]
