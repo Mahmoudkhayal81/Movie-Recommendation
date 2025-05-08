@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6"
+import { Link } from "react-router-dom"
 
 export const BannerHome = () => {
   const { bannerData, imageURL: imageBaseURL } = useSelector(
@@ -64,7 +65,7 @@ export const BannerHome = () => {
 
                   <div className="absolute top-0  w-full h-full bg-gradient-to-t from-neutral-900 to-transparent"></div>
 
-                  <div className="container mx-auto">
+                  <div className="container mx-auto relative z-10">
                     <div className=" w-full absolute bottom-0 max-w-md px-3">
                       <h2 className="font-bold text-2xl lg:text-4xl drop-shadow-2xl text-white ">
                         {data?.title || data?.name}
@@ -77,9 +78,11 @@ export const BannerHome = () => {
                         <span>|</span>
                         <p>View: {data.popularity.toFixed(0)}</p>
                       </div>
-                      <button className="px-4 py-2 text-black cursor-pointer bg-white font-bold rounded my-4 hover:bg-gradient-to-l from-red-500 to-orange-500 shadow-md transition-all hover:scale-105">
-                        Play Now
-                      </button>
+                      <Link to={"/" + data?.media_type + "/" + data.id}>
+                        <button className=" bg-white px-4 py-2 text-black font-bold rounded mt-4  hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md cursor-pointer transition-all hover:scale-105">
+                          Play Now
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

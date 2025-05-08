@@ -1,48 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
-import Card from "../components/Card";
+import React, { useState, useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import axios from "axios"
+import Card from "../components/Card"
 
-const API_KEY = "YOUR_API_KEY"; // ← استبدله بمفتاحك الحقيقي
+const API_KEY = "YOUR_API_KEY" // ← استبدله بمفتاحك الحقيقي
 
 export const SearchPage = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [searchInput, setSearchInput] = useState("");
-  const [data, setData] = useState([]);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [searchInput, setSearchInput] = useState("")
+  const [data, setData] = useState([])
 
   // تحديث الحقل حسب الكلمة في الرابط
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const q = params.get("q") || "";
-    setSearchInput(q);
-  }, [location.search]);
+    const params = new URLSearchParams(location.search)
+    const q = params.get("q") || ""
+    setSearchInput(q)
+  }, [location.search])
 
   // البحث التلقائي مع كل كتابة (Debounce)
   useEffect(() => {
     if (!searchInput.trim()) {
-      setData([]);
-      return;
+      setData([])
+      return
     }
 
     const delay = setTimeout(async () => {
       try {
-        const response = await axios.get(`https://api.themoviedb.org/3/search/multi`, {
-          params: {
-            query: searchInput,
-            api_key: API_KEY,
-          },
-        });
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/search/multi`,
+          {
+            params: {
+              query: searchInput,
+              api_key: API_KEY,
+            },
+          }
+        )
 
-        setData(response.data.results);
-        navigate(`/search?q=${searchInput}`);
+        setData(response.data.results)
+        navigate(`/search?q=${searchInput}`)
       } catch (error) {
-        console.error("error", error);
+        console.error("error", error)
       }
-    }, 500); // نصف ثانية انتظار
+    }, 500) // نصف ثانية انتظار
 
-    return () => clearTimeout(delay);
-  }, [searchInput]);
+    return () => clearTimeout(delay)
+  }, [searchInput])
 
   return (
     <div className="pt-16 min-h-screen bg-black text-white">
@@ -65,7 +68,10 @@ export const SearchPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 place-items-center">
           {data.length > 0 ? (
             data
-              .filter((item) => item.media_type === "movie" || item.media_type === "tv")
+              .filter(
+                (item) =>
+                  item.media_type === "movie" || item.media_type === "tv"
+              )
               .map((item) => (
                 <Card
                   key={item.id + "_search"}
@@ -81,7 +87,7 @@ export const SearchPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SearchPage;
+export default SearchPage
