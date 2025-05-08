@@ -53,7 +53,7 @@ const DetailsPage = () => {
       </div>
 
       {/* المحتوى */}
-      <div className="container mx-auto px-10 mt-6">
+      <div className="container mx-auto px-4 lg:px-10 mt-6">
         <div className=" flex flex-col lg:flex-row gap-5 lg:gap-10">
           <div className="relative mx-auto lg:-mt-28 lg:mx-0 w-fit min-w-60">
             <img

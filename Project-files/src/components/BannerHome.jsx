@@ -65,7 +65,7 @@ export const BannerHome = () => {
 
                   <div className="absolute top-0  w-full h-full bg-gradient-to-t from-neutral-900 to-transparent"></div>
 
-                  <div className="container mx-auto relative z-10">
+                  <div className="container mx-auto relative z-10 px-4 lg:px-10">
                     <div className=" w-full absolute bottom-0 max-w-md px-3">
                       <h2 className="font-bold text-2xl lg:text-4xl drop-shadow-2xl text-white ">
                         {data?.title || data?.name}

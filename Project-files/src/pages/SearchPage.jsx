@@ -60,7 +60,7 @@ export const SearchPage = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-10">
         <h3 className="text-base md:text-lg lg:text-2xl font-semibold my-6">
           Search Results For "{searchInput}"
         </h3>
