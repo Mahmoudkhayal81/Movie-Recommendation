@@ -12,6 +12,7 @@ export const BannerHome = () => {
   const handleNext = useCallback(() => {
     setCurrentImage((prev) => (prev < bannerData.length - 1 ? prev + 1 : 0))
   }, [bannerData])
+
   const handlePrev = () => {
     setCurrentImage((prev) => (prev > 0 ? prev - 1 : bannerData.length))
   }
